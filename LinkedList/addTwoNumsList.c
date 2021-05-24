@@ -21,31 +21,36 @@
 // 0 <= Node.val <= 9
 // It is guaranteed that the list represents a number that does not have leading zeros.
 
-// Definition for singly-linked list.
-struct ListNode
-{
-    int val;
-    struct ListNode *next;
-};
 
-// Solution WIP
-// struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2)
-// {
-//     struct ListNode *x = l1;
-//     struct ListNode *y = l2;
+ // Definition for singly-linked list.
+  struct ListNode {
+      int val;
+      struct ListNode *next;
+  };
 
-//     int carry = 0;
-//     current = dummyHead;
-
-//     while (x || y)
-//     {
-//         int sum = carry + x ? x->val : 0 + y ? y->val
-//                                              : 0;
-//         carry = sum / 10;
-//         current->next = struct
-
-//             x = x->next;
-//         y = y->next;
-//     }
-//     return sum;
-// }
+    // Solution WIP
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
+    // create new node
+    struct ListNode *newNode = (struct ListNode*) malloc(sizeof(struct ListNode));
+    struct ListNode *current = newNode;
+    int sum = 0;
+    int carry = 0;
+    
+    while(l1 || l2 || sum > 0) {
+        if(l1) {
+            sum += l1 -> val;
+            l1 = l1 -> next;
+        }
+        if(l2) {
+            sum += l2 -> val;
+            l2 = l2 -> next;
+        }
+        carry = floor(sum / 10);
+        sum = sum % 10; // get singles digit
+        current -> next = (struct ListNode*) malloc(sizeof(struct ListNode));
+        current = current -> next;
+        sum = carry;
+        carry = 0;
+    }
+    return newNode -> next;
+}
