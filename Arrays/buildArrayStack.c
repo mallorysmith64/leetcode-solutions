@@ -41,7 +41,18 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <stddef.h>
+
 char **buildArray(int *target, int targetSize, int n, int *returnSize)
 {
-    
-}
+    char **newArray = malloc(sizeof(char * [n * 2])), j = 0;
+    for (int i = 0, k = 1; i < targetSize;)
+    {
+        newArray[j++] = "Push", k++ != target[i] ? newArray[j++] = "Pop" : i++;
+    }
+
+    return *returnSize = j, newArray;
