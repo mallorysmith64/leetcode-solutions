@@ -3,5 +3,7 @@ class Solution:
         s = s.strip()
         words = s.split()
         reversed_words = words[::-1]
-        print(" ".join(reversed_words))
         return " ".join(reversed_words)
+
+s = "coyote is a word"
+print(Solution().reverseWords(s))
