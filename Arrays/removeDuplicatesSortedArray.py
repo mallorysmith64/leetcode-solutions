@@ -32,11 +32,21 @@
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
+        # Get the total number of elements in the input list
         n = len(nums)
+    
+        # 'j' is a pointer; it tracks where the next unique element should be placed
+        # We start at 1 because the first element (index 0) is always unique
         j = 1
 
+        # 'i' is a pointer; it scans through the list starting from the second element
         for i in range(1, n):
+            # If the current element is different from the one before it, it's a new unique value
             if nums[i] != nums[i-1]:
+                # Move the unique value found at 'i' to the position tracked by 'j'
                 nums[j] = nums[i]
+                # Increment 'j' to prepare the next available slot for a unique element
                 j += 1
+        
+        # Return 'j', which now represents the count of unique elements found
         return j
