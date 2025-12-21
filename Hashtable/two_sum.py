@@ -6,15 +6,16 @@
 
 # You can return the answer in any order.
 
-class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
-        prev_map = {} 
+def twoSum(nums: list[int], target: int) -> list[int]:
+    prev_map = {} 
 
-        for i, n in enumerate(nums):
-            diff = target - n
+    for i, n in enumerate(nums):
+        diff = target - n
             
-            if diff in prev_map:
-                return [prev_map[diff], i]
+        if diff in prev_map:
+            return [prev_map[diff], i]
             
-            prev_map[n] = i
+        prev_map[n] = i
             
+target = [234, 15, 7, 9, 11, 2]
+print(twoSum(target, 9))  # Output: [1, 2]
